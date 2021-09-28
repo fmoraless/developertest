@@ -12,11 +12,12 @@
             @error('url') <span class="text-danger er">{{ $message }}</span>@enderror
         </div>
 
-        <button type="button" wire:click.prevent="SearchUrl()" class="btn btn-dark close-modal">
+        <button type="button" wire:click.prevent="SearchUrl()" class="btn btn-dark" title="Consultar">
             Consultar
+            <i class="fas fa-search"></i>
         </button>
-        <button type="button" wire:click="resetUI()" class="btn btn-dark close-modal ml-2">
-            Limpiar
+        <button type="button" wire:click="resetUI()" class="btn btn-dark ml-2" title="Limpiar">
+            <i class="fas fa-eraser"></i>
         </button>
         <h6 class="text-center text-warning ml-3" wire:loading>POR FAVOR ESPERE</h6>
     </form>
