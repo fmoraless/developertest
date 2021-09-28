@@ -1,6 +1,6 @@
 
-<div class="col-md-6 col-lg-6 col-sm-12">
-    <form>
+<div class="col-md-12 col-lg-12 col-sm-12">
+    <form class="form-group">
         <div class="mb-3">
             <label for="url" class="form-label">Ingrese una URL:</label>
             <input type="text"
@@ -15,15 +15,42 @@
         <button type="button" wire:click.prevent="SearchUrl()" class="btn btn-dark close-modal">
             Consultar
         </button>
+        <button type="button" wire:click="resetUI()" class="btn btn-dark close-modal ml-2">
+            Limpiar
+        </button>
+        <h6 class="text-center text-warning ml-3" wire:loading>POR FAVOR ESPERE</h6>
     </form>
+
+    <label class="form-label mt-3">Resultados: </label>
+    <hr>
+    <table class="table table-borderless">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th class="text-center" scope="col">Imágenes</th>
+            <th class="text-center" scope="col">Archivos Css</th>
+            <th class="text-center" scope="col">Uso de Css</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Cant.</th>
+            <td class="text-center">{{ $totalImages }}</td>
+            <td class="text-center">{{ $totalCssFiles }}</td>
+
+
+            @if ($Css == false)
+                <td class="text-center text-muted">Sin uso de css</td>
+            @else
+                <td class="text-center text-info">En uso de css</td>
+            @endif
+        </tr>
+        </tbody>
+    </table>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        window.livewire.on('buscar', function (content) {
-            console.log(content.value);
-            // document.getElementsByTagName('img');
-        })
-    });
-</script>
+
+
+
+
 
 
